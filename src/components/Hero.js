@@ -10,7 +10,7 @@ function Hero() {
           The new social network for film lovers, critics, and friends.
           Discover, discuss, review, and play.
         </p>
-        <a href="https://mail.google.com/mail/u/0/?fs=1&to=thoufeek2306@gmail.com&tf=cm" className="cta-button">
+        <a href="https://www.instagram.com/movie_social/" className="cta-button">
           Contact Me to View the Prototype
           <i className="fas fa-arrow-right"></i>
         </a>
