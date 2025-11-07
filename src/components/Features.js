@@ -8,6 +8,13 @@ function Features() {
         <p className="section-subtitle">MovieSocial isn't just another movie app. It's a community.</p>
         
         <div className="features-grid">
+          {/* New Feature (card 1) - Rated reviews */}
+          <div className="feature-card animate-on-scroll">
+            <i className="fas fa-star feature-icon" aria-hidden="true"></i>
+            <h3>Rated reviews</h3>
+            <p>Browse normalized, rated reviews with reviewer badges and averaged scores so you can quickly find trusted opinions.</p>
+          </div>
+
           {/* Feature 1 */}
           <div className="feature-card animate-on-scroll">
             <i className="fas fa-users feature-icon"></i>
