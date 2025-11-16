@@ -10,10 +10,10 @@ function Navbar({ isDisabled = false, onAlertNeeded }) {
       return false;
     } else {
       // If enabled and on feedback page, redirect to home page with hash
-      if (window.location.pathname === '/feedback') {
+      if (window.location.hash === '#/feedback') {
         e.preventDefault();
         const href = e.currentTarget.getAttribute('href');
-        window.location.href = `/${href}`;
+        window.location.href = `/#${href}`;
       }
     }
   };
