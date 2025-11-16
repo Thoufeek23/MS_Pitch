@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
 import ModleSpotlight from './components/ModleSpotlight';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Feedback from './components/Feedback';
 
 function App() {
   
@@ -35,7 +37,7 @@ function App() {
     };
   }, []); // Empty dependency array means this runs once on mount
 
-  return (
+  const HomePage = () => (
     <>
       <Navbar />
       <main>
@@ -46,6 +48,15 @@ function App() {
       </main>
       <Footer />
     </>
+  );
+
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/feedback" element={<Feedback />} />
+      </Routes>
+    </Router>
   );
 }
 
