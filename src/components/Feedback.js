@@ -12,12 +12,16 @@ const Feedback = () => {
     uiRating: 0,
     signupRating: 0,
     languagePreferenceRating: 0,
+    performanceRating: 0,
+    navigationRating: 0,
     dailyUsageRating: 0,
     comparisonRating: 0,
     watchlistRating: 0,
+    aiRecommendationRating: 0,
     communityRating: 0,
     socialRating: 0,
     discussionRating: 0,
+    feedPopulationRating: 0,
     gameRating: 0,
     badgesRating: 0,
     leaderboardRating: 0,
@@ -103,12 +107,16 @@ const Feedback = () => {
         uiRating: formData.uiRating,
         signupRating: formData.signupRating,
         languagePreferenceRating: formData.languagePreferenceRating,
+        performanceRating: formData.performanceRating,
+        navigationRating: formData.navigationRating,
         dailyUsageRating: formData.dailyUsageRating,
         comparisonRating: formData.comparisonRating,
         watchlistRating: formData.watchlistRating,
+        aiRecommendationRating: formData.aiRecommendationRating,
         communityRating: formData.communityRating,
         socialRating: formData.socialRating,
         discussionRating: formData.discussionRating,
+        feedPopulationRating: formData.feedPopulationRating,
         gameRating: formData.gameRating,
         badgesRating: formData.badgesRating,
         leaderboardRating: formData.leaderboardRating,
@@ -117,7 +125,7 @@ const Feedback = () => {
       };
 
       // Submit to Google Sheets via Google Apps Script Web App
-      await fetch('https://script.google.com/macros/s/AKfycbylkesIdz-rPq_4lz3QEMHN4UCsUmc7qzQcnz_p3RapT2J572HOo7RrkAmDfYxDVQal0A/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbznsCNF1OKe0Ml-yVEYtIeHPnLZAIP7YXd-6LmoJnLXMqUoCLNi8Cj6-Xy64hCeW--PRg/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -138,12 +146,16 @@ const Feedback = () => {
         uiRating: 0,
         signupRating: 0,
         languagePreferenceRating: 0,
+        performanceRating: 0,
+        navigationRating: 0,
         dailyUsageRating: 0,
         comparisonRating: 0,
         watchlistRating: 0,
+        aiRecommendationRating: 0,
         communityRating: 0,
         socialRating: 0,
         discussionRating: 0,
+        feedPopulationRating: 0,
         gameRating: 0,
         badgesRating: 0,
         leaderboardRating: 0,
@@ -306,6 +318,18 @@ const Feedback = () => {
                 onRatingChange={(rating) => handleInputChange('languagePreferenceRating', rating)}
                 label="How clear was the movie language preference selection during signup?"
               />
+
+              <StarRating
+                rating={formData.performanceRating}
+                onRatingChange={(rating) => handleInputChange('performanceRating', rating)}
+                label="Rate the overall speed and performance of the app"
+              />
+
+              <StarRating
+                rating={formData.navigationRating}
+                onRatingChange={(rating) => handleInputChange('navigationRating', rating)}
+                label="How easy was it to navigate and find what you were looking for?"
+              />
             </div>
 
             {/* Daily Usage & Value */}
@@ -334,6 +358,12 @@ const Feedback = () => {
                 onRatingChange={(rating) => handleInputChange('watchlistRating', rating)}
                 label="How useful is the watchlist feature for organizing movies you want to watch?"
               />
+
+              <StarRating
+                rating={formData.aiRecommendationRating}
+                onRatingChange={(rating) => handleInputChange('aiRecommendationRating', rating)}
+                label="How accurate/relevant did you find the AI-powered movie recommendations?"
+              />
             </div>
 
             {/* Essential Feature */}
@@ -361,6 +391,12 @@ const Feedback = () => {
                 rating={formData.discussionRating}
                 onRatingChange={(rating) => handleInputChange('discussionRating', rating)}
                 label="How engaging are the movie discussions features?"
+              />
+
+              <StarRating
+                rating={formData.feedPopulationRating}
+                onRatingChange={(rating) => handleInputChange('feedPopulationRating', rating)}
+                label="How well did the 'For You' feed populate with content based on your interests?"
               />
             </div>
 
@@ -414,7 +450,7 @@ const Feedback = () => {
               <button 
                 type="submit" 
                 className="cta-button submit-btn" 
-                disabled={isSubmitting || !formData.name || !formData.movieFrequency || !formData.readReviews || !formData.postReviews || !formData.platform || formData.uiRating === 0 || formData.signupRating === 0 || formData.languagePreferenceRating === 0 || formData.dailyUsageRating === 0 || formData.comparisonRating === 0 || formData.watchlistRating === 0 || formData.communityRating === 0 || formData.socialRating === 0 || formData.discussionRating === 0 || formData.gameRating === 0 || formData.badgesRating === 0 || formData.leaderboardRating === 0 || formData.recommendationRating === 0}
+                disabled={isSubmitting || !formData.name || !formData.movieFrequency || !formData.readReviews || !formData.postReviews || !formData.platform || formData.uiRating === 0 || formData.signupRating === 0 || formData.languagePreferenceRating === 0 || formData.performanceRating === 0 || formData.navigationRating === 0 || formData.dailyUsageRating === 0 || formData.comparisonRating === 0 || formData.watchlistRating === 0 || formData.aiRecommendationRating === 0 || formData.communityRating === 0 || formData.socialRating === 0 || formData.discussionRating === 0 || formData.feedPopulationRating === 0 || formData.gameRating === 0 || formData.badgesRating === 0 || formData.leaderboardRating === 0 || formData.recommendationRating === 0}
               >
                 {isSubmitting ? (
                   <>
