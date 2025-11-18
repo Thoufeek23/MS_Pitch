@@ -8,14 +8,24 @@ function Navbar({ isDisabled = false, onAlertNeeded }) {
       e.preventDefault();
       if (onAlertNeeded) onAlertNeeded();
       return false;
-    } else {
-      // If enabled and on feedback page, redirect to home page with hash
-      if (window.location.hash === '#/feedback') {
-        e.preventDefault();
-        const href = e.currentTarget.getAttribute('href');
-        window.location.href = `/#${href}`;
+    }
+    const href = e.currentTarget.getAttribute('href');
+    // If on feedback page, go to homepage and scroll to section
+    if (window.location.hash === '#/feedback') {
+      e.preventDefault();
+      window.location.href = `/#${href}`;
+      return;
+    }
+    // If already on homepage, scroll to section
+    if (window.location.hash === '' || window.location.hash === '#/') {
+      e.preventDefault();
+      const sectionId = href.replace('#/', '');
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
       }
     }
+    // Otherwise, let default behavior happen
   };
 
   useEffect(() => {
@@ -45,9 +55,9 @@ function Navbar({ isDisabled = false, onAlertNeeded }) {
             <img src="/MS_logo.png" alt="MovieSocial Logo" height="40" />
           </a>
           <ul className="nav-links">
-            <li><a href="#features" onClick={handleNavClick}>Features</a></li>
-            <li><a href="#modle" onClick={handleNavClick}>The Game</a></li>
-            <li><a href="#contact" className="nav-btn-contact" onClick={handleNavClick}>View Prototype</a></li>
+            <li><a href="#/features" onClick={handleNavClick}>Features</a></li>
+            <li><a href="#/modle" onClick={handleNavClick}>The Game</a></li>
+            <li><a href="#/contact" className="nav-btn-contact" onClick={handleNavClick}>View Prototype</a></li>
           </ul>
         </nav>
       </div>
