@@ -1,6 +1,20 @@
 import React from 'react';
 
 function ModleSpotlight() {
+  const handleSeeItClick = (e) => {
+    e.preventDefault();
+    if (window.location.hash === '' || window.location.hash === '#/') {
+      // On homepage, scroll to contact
+      const contactSection = document.getElementById('contact');
+      if (contactSection) {
+        contactSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // On other route, redirect to homepage and scroll
+      window.location.href = '/#/contact';
+    }
+  };
+
   return (
     <section id="modle" className="modle-section">
       <div className="container modle-content">
@@ -14,7 +28,7 @@ function ModleSpotlight() {
             We've included "Modle," our daily movie-guessing game. You get six tries to guess the movie from subtle clues.
             It's addictive, fun, and available in multiple languages right inside the app.
           </p>
-          <a href="#contact" className="cta-button-secondary">See it in Action</a>
+          <a href="#contact" className="cta-button-secondary" onClick={handleSeeItClick}>See it in Action</a>
         </div>
 
         <div className="modle-visual animate-on-scroll">
