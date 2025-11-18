@@ -10,6 +10,12 @@ function Navbar({ isDisabled = false, onAlertNeeded }) {
       return false;
     }
     const href = e.currentTarget.getAttribute('href');
+    // Logo click: scroll to top
+    if (href === '#top') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     // If on feedback page, go to homepage and scroll to section
     if (window.location.hash === '#/feedback') {
       e.preventDefault();
@@ -36,22 +42,17 @@ function Navbar({ isDisabled = false, onAlertNeeded }) {
         setIsScrolled(false);
       }
     };
-
     window.addEventListener('scroll', handleScroll);
-
-    // Cleanup function to remove event listener
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); // Empty array ensures this effect runs only once
+  }, []);
 
   return (
     <header className={`navbar ${isScrolled ? 'scrolled' : ''} ${isDisabled ? 'disabled' : ''}`}>
       <div className="container">
         <nav>
           <a href="#top" className="nav-logo" onClick={handleNavClick}>
-            {/* This path works because the image is in the 'public' folder 
-            */}
             <img src="/MS_logo.png" alt="MovieSocial Logo" height="40" />
           </a>
           <ul className="nav-links">
