@@ -125,7 +125,7 @@ const Feedback = () => {
       };
 
       // Submit to Google Sheets via Google Apps Script Web App
-      await fetch('https://script.google.com/macros/s/AKfycbznsCNF1OKe0Ml-yVEYtIeHPnLZAIP7YXd-6LmoJnLXMqUoCLNi8Cj6-Xy64hCeW--PRg/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbwXqYK6Fs84WmnN75zP5AmkPCiPxLMBbQvkNe-hNXcAPRIdM1GCd91UNRal6CEqIbsCUw/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
@@ -168,7 +168,7 @@ const Feedback = () => {
       
     } catch (error) {
       console.error('Submission error:', error);
-      setSubmitMessage('⚠️ There was an error submitting your feedback. Please try again or contact us directly at thoufeek203@gmail.com');
+      setSubmitMessage('⚠️ There was an error submitting your feedback. Please try again or contact us directly at thoufeek2306@gmail.com');
     } finally {
       setIsSubmitting(false);
     }
