@@ -24,7 +24,9 @@ const Feedback = () => {
     feedPopulationRating: 0,
     gameRating: 0,
     badgesRating: 0,
-    leaderboardRating: 0,
+    ranksRating: 0, // NEW
+    dmRating: 0, // NEW
+    importRating: 0, // NEW
     recommendationRating: 0,
     oneFeature: ''
   });
@@ -119,7 +121,10 @@ const Feedback = () => {
         feedPopulationRating: formData.feedPopulationRating,
         gameRating: formData.gameRating,
         badgesRating: formData.badgesRating,
-        leaderboardRating: formData.leaderboardRating,
+        // Removed leaderboardRating
+        ranksRating: formData.ranksRating, // NEW
+        dmRating: formData.dmRating, // NEW
+        importRating: formData.importRating, // NEW
         recommendationRating: formData.recommendationRating,
         oneFeature: formData.oneFeature
       };
@@ -158,7 +163,10 @@ const Feedback = () => {
         feedPopulationRating: 0,
         gameRating: 0,
         badgesRating: 0,
-        leaderboardRating: 0,
+        // Removed leaderboardRating
+        ranksRating: 0, // NEW
+        dmRating: 0, // NEW
+        importRating: 0, // NEW
         recommendationRating: 0,
         oneFeature: ''
       });
@@ -394,6 +402,18 @@ const Feedback = () => {
               />
 
               <StarRating
+                rating={formData.ranksRating}
+                onRatingChange={(rating) => handleInputChange('ranksRating', rating)}
+                label="How useful do you find the custom Movie Ranks/List feature?"
+              />
+
+              <StarRating
+                rating={formData.dmRating}
+                onRatingChange={(rating) => handleInputChange('dmRating', rating)}
+                label="How valuable is the Direct Message feature for sharing movie content?"
+              />
+
+              <StarRating
                 rating={formData.feedPopulationRating}
                 onRatingChange={(rating) => handleInputChange('feedPopulationRating', rating)}
                 label="How well did the 'For You' feed populate with content based on your interests?"
@@ -415,12 +435,8 @@ const Feedback = () => {
                 onRatingChange={(rating) => handleInputChange('badgesRating', rating)}
                 label="How motivating are badges and achievements for your app usage?"
               />
-
-              <StarRating
-                rating={formData.leaderboardRating}
-                onRatingChange={(rating) => handleInputChange('leaderboardRating', rating)}
-                label="Rate the value of leaderboards and community rankings"
-              />
+              
+              {/* Removed: Leaderboard Rating was here */}
             </div>
 
             {/* Overall Value */}
@@ -431,6 +447,12 @@ const Feedback = () => {
                 rating={formData.recommendationRating}
                 onRatingChange={(rating) => handleInputChange('recommendationRating', rating)}
                 label="Overall, how likely are you to recommend MovieSocial to movie-loving friends?"
+              />
+
+              <StarRating
+                rating={formData.importRating}
+                onRatingChange={(rating) => handleInputChange('importRating', rating)}
+                label="How important is the Letterboxd profile import feature for you?"
               />
 
               <div className="form-group">
@@ -450,7 +472,7 @@ const Feedback = () => {
               <button 
                 type="submit" 
                 className="cta-button submit-btn" 
-                disabled={isSubmitting || !formData.name || !formData.movieFrequency || !formData.readReviews || !formData.postReviews || !formData.platform || formData.uiRating === 0 || formData.signupRating === 0 || formData.languagePreferenceRating === 0 || formData.performanceRating === 0 || formData.navigationRating === 0 || formData.dailyUsageRating === 0 || formData.comparisonRating === 0 || formData.watchlistRating === 0 || formData.aiRecommendationRating === 0 || formData.communityRating === 0 || formData.socialRating === 0 || formData.discussionRating === 0 || formData.feedPopulationRating === 0 || formData.gameRating === 0 || formData.badgesRating === 0 || formData.leaderboardRating === 0 || formData.recommendationRating === 0}
+                disabled={isSubmitting || !formData.name || !formData.movieFrequency || !formData.readReviews || !formData.postReviews || !formData.platform || formData.uiRating === 0 || formData.signupRating === 0 || formData.languagePreferenceRating === 0 || formData.performanceRating === 0 || formData.navigationRating === 0 || formData.dailyUsageRating === 0 || formData.comparisonRating === 0 || formData.watchlistRating === 0 || formData.aiRecommendationRating === 0 || formData.communityRating === 0 || formData.socialRating === 0 || formData.discussionRating === 0 || formData.feedPopulationRating === 0 || formData.gameRating === 0 || formData.badgesRating === 0 || formData.ranksRating === 0 || formData.dmRating === 0 || formData.importRating === 0 || formData.recommendationRating === 0}
               >
                 {isSubmitting ? (
                   <>
